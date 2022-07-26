@@ -1,0 +1,25 @@
+<div id="block">
+
+<?php 
+	if( have_rows('repeater') ): 
+	while ( have_rows('repeater') ) : the_row(); 
+?>
+	<section>
+		<?php the_sub_field('content'); ?>
+		<?php
+			$img = get_sub_field('image');
+			$img_title = $img['title'];
+			$img_alt = $img['alt'];
+			$img_caption = $img['caption'];
+			$img_desc = $img['description'];
+			$img_url = $img['url'];
+			$img_thumb = $img['sizes']['medium'];
+		?>
+		<img src="<?php echo $img_thumb; ?>" alt="<?php echo $img_alt; ?>">
+	</section>
+<?php 
+	endwhile; 
+	endif; 
+?>
+
+</div><!-- block -->
